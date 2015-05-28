@@ -134,7 +134,9 @@ func providerAuthHeaderWorks(tokenURL string) bool {
 	return true
 }
 
-func RetrieveToken(ctx context.Context, ClientID, ClientSecret, TokenURL string, v url.Values) (*Token, error) {
+func RetrieveToken(ctx context.Context, ClientID, ClientSecret, TokenURL string,
+	TokenRequestHeaders map[string]string, v url.Values) (*Token, error) {
+
 	hc, err := ContextClient(ctx)
 	if err != nil {
 		return nil, err
@@ -149,6 +151,12 @@ func RetrieveToken(ctx context.Context, ClientID, ClientSecret, TokenURL string,
 		return nil, err
 	}
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	if TokenRequestHeaders != nil {
+		for key, value := range TokenRequestHeaders {
+			req.Header.Set(key, value)
+		}
+	}
+
 	if !bustedAuth {
 		req.SetBasicAuth(ClientID, ClientSecret)
 	}

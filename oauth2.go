@@ -44,6 +44,9 @@ type Config struct {
 
 	// Scope specifies optional requested permissions.
 	Scopes []string
+
+	// Additional header data for token requests
+	TokenRequestHeaders map[string]string
 }
 
 // A TokenSource is anything that can return a token.

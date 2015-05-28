@@ -7,7 +7,7 @@ oauth2 package contains a client implementation for OAuth 2.0 spec.
 ## Installation
 
 ~~~~
-go get golang.org/x/oauth2
+go get github.com/brianbowden/oauth2
 ~~~~
 
 See godoc for further documentation and examples.
@@ -61,4 +61,3 @@ with the `oauth2` package.
 		}
 		client.Get("...")
 	}
-
