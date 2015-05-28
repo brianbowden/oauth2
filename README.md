@@ -40,8 +40,8 @@ with the `oauth2` package.
 
 	import (
 		"golang.org/x/net/context"
-		"golang.org/x/oauth2"
-		"golang.org/x/oauth2/google"
+		"github.com/brianbowden/oauth2"
+		"github.com/brianbowden/oauth2/google"
 		newappengine "google.golang.org/appengine"
 		newurlftech "google.golang.org/appengine/urlfetch"
 
